@@ -1,25 +1,23 @@
 package com.uniyaz.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "REHBER_TABLO")
-public class Rehber {
+public class Rehber extends BaseEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME", length = 50)
+    @Column(length = 50)
     private String name;
 
     @Column(length = 15)
     private String gsm;
 
     public Long getId() {
-        return id;
+        return null;
     }
 
     public void setId(Long id) {
@@ -40,5 +38,14 @@ public class Rehber {
 
     public void setGsm(String gsm) {
         this.gsm = gsm;
+    }
+
+    @Override
+    public String toString() {
+        return "Rehber{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gsm='" + gsm + '\'' +
+                '}';
     }
 }

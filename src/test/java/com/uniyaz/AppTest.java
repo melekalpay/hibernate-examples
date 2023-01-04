@@ -1,5 +1,6 @@
 package com.uniyaz;
 
+import com.uniyaz.domain.Person;
 import com.uniyaz.domain.Rehber;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -24,6 +25,19 @@ public class AppTest
         currentSession.beginTransaction();
         Query query = currentSession.createQuery("Select rehber From Rehber rehber");
         List<Rehber> rehberList = query.list();
+        currentSession.close();
+        //currentSession.createCriteria();
+        //currentSession.createSQLQuery("");
+    }
+
+    @Test
+    public void insertPersonTest() {
+
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.beginTransaction();
+        Query query = currentSession.createQuery("Select person From Person person");
+        List<Person> personList = query.list();
         currentSession.close();
         //currentSession.createCriteria();
         //currentSession.createSQLQuery("");
