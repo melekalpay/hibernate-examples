@@ -1,24 +1,26 @@
 package com.uniyaz.service;
 
+import com.uniyaz.dao.PersonDao;
 import com.uniyaz.dao.RehberDao;
+import com.uniyaz.domain.Person;
 import com.uniyaz.domain.Rehber;
 
 import java.util.List;
 
 public class PersonService {
 
-    public List<Rehber> findAll() {
-        RehberDao rehberDao = new RehberDao();
-        return rehberDao.findAll();
+    public List<Person> findAll() {
+        PersonDao personDao = new PersonDao();
+        return personDao.findAll();
     }
 
-    public Rehber save(Rehber rehber) {
-        RehberDao rehberDao = new RehberDao();
-        return rehberDao.save(rehber);
+    public Person save(Person person) {
+        PersonDao personDao = new PersonDao();
+        return personDao.save(person);
     }
 
-    public void delete(Rehber rehber) {
-        RehberDao rehberDao = new RehberDao();
-        rehberDao.delete(rehber);
+    public void delete(Person person) {
+        PersonDao personDao = new PersonDao();
+        personDao.delete(person);
     }
 }

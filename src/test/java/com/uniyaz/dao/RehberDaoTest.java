@@ -1,5 +1,6 @@
 package com.uniyaz.dao;
 
+import com.uniyaz.domain.Person;
 import com.uniyaz.domain.Rehber;
 import org.junit.Test;
 
@@ -38,5 +39,17 @@ public class RehberDaoTest {
         rehberDao.delete(rehber);
 
         System.out.println("KAYIT SİLİNDİ");
+    }
+
+    @Test
+    public void findAllByName() {
+        String name = "ATİLLA";
+        RehberDao rehberDao = new RehberDao();
+        List<Rehber> rehberList = rehberDao.findAllByName(name);
+        for(Rehber rehber : rehberList){
+            System.out.println(rehber);
+        }
+
+
     }
 }

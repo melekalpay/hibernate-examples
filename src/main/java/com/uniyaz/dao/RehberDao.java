@@ -35,4 +35,14 @@ public class RehberDao {
         currentSession.delete(rehber);
         transaction.commit();
     }
+
+    public List<Rehber> findAllByName(String name) {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session currentSession = sessionFactory.openSession();
+        Query query = currentSession.createQuery("Select rehber From Rehber rehber where rehber.name = :isim ");
+        query.setParameter("isim", name);
+        List<Rehber> rehberList = query.list();
+        return rehberList;
+    }
+
 }

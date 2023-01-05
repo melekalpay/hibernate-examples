@@ -1,6 +1,6 @@
 package com.uniyaz.service;
 
-import com.uniyaz.dao.PersonService;
+
 import com.uniyaz.domain.Person;
 import org.junit.Test;
 

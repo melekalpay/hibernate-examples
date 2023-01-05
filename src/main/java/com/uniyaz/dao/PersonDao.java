@@ -2,6 +2,7 @@ package com.uniyaz.dao;
 
 import com.uniyaz.HibernateUtils;
 import com.uniyaz.domain.Person;
+import com.uniyaz.domain.Rehber;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,5 +34,14 @@ public class PersonDao {
         Transaction transaction = currentSession.beginTransaction();
         currentSession.delete(person);
         transaction.commit();
+    }
+
+    public List<Person> findAllByName(String name) {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session currentSession = sessionFactory.openSession();
+        Query query = currentSession.createQuery("Select person From Person person where person.firstName = :isim ");
+        query.setParameter("isim", name);
+        List<Person> personList = query.list();
+        return personList;
     }
 }
